@@ -1,13 +1,14 @@
+import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { plans } from "@/lib/data";
 import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
 
 export default function Pricing() {
   return (
-    <section className="space-y-[6rem]">
-      <article className="text-center">
-        <h1 className="text-[1.8rem] font-bold">Plans & Pricing</h1>
-        <h2>Better rates, exceptional people</h2>
-      </article>
+    <section>
+      <SectionHeader
+        title="Plans & Pricing"
+        subtitle="Better rates , exceptional people"
+      />
       <ul className=" grid grid-cols-3 max-w-[70rem] gap-[3rem] mx-auto ">
         {plans.map((plan, idx) => (
           <li

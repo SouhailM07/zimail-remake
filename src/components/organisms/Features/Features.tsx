@@ -1,4 +1,5 @@
 "use client";
+import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import {
   Carousel,
   CarouselContent,
@@ -31,20 +32,18 @@ export default function Features() {
     { img: my_media.feature_slide_3 },
   ];
   return (
-    <section className="max-w-[60rem] mx-auto space-y-[6rem] ">
-      <article className="text-center">
-        <h1 className="text-[1.8rem] font-bold">Awesome Features</h1>
-      </article>
+    <section className="max-w-[60rem] mx-auto  ">
+      <SectionHeader title="Awesome Features" />
       <article className="grid grid-cols-3 place-items-center">
         <FeaturesList features={features_1} />
         <div className="drop-shadow-2xl  rounded-2xl ">
           <Carousel
-            // opts={{ loop: true }}
-            // plugins={[
-            //   Autoplay({
-            //     delay: 2000,
-            //   }),
-            // ]}
+          // opts={{ loop: true }}
+          // plugins={[
+          //   Autoplay({
+          //     delay: 2000,
+          //   }),
+          // ]}
           >
             <CarouselContent className="p-0! m-0! rounded-2xl  w-[16rem] h-[28rem] ">
               {slides.map((e, i) => (
