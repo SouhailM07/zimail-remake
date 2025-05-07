@@ -1,7 +1,8 @@
 "use client";
-import SectionHeader from "@/components/SectionHeader/SectionHeader";
+import SectionHeader from "@/components/atoms/SectionHeader/SectionHeader";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
@@ -9,6 +10,7 @@ import my_media from "@/lib/media";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { BsCameraVideoFill } from "react-icons/bs";
 import { FaCloud, FaLock } from "react-icons/fa";
 import { FaHeadphonesSimple } from "react-icons/fa6";
@@ -31,6 +33,21 @@ export default function Features() {
     { img: my_media.feature_slide_2 },
     { img: my_media.feature_slide_3 },
   ];
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
   return (
     <section className="max-w-[60rem] mx-auto  ">
       <SectionHeader title="Awesome Features" />
@@ -38,12 +55,13 @@ export default function Features() {
         <FeaturesList features={features_1} />
         <div className="drop-shadow-2xl  rounded-2xl ">
           <Carousel
-          // opts={{ loop: true }}
-          // plugins={[
-          //   Autoplay({
-          //     delay: 2000,
-          //   }),
-          // ]}
+            // opts={{ loop: true }}
+            setApi={setApi}
+            // plugins={[
+            //   Autoplay({
+            //     delay: 2000,
+            //   }),
+            // ]}
           >
             <CarouselContent className="p-0! m-0! rounded-2xl  w-[16rem] h-[28rem] ">
               {slides.map((e, i) => (
@@ -61,6 +79,26 @@ export default function Features() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <ul className=" translate-y-[-4rem] flexCenter gap-[1rem] z-[100] relative py-2 text-center text-sm text-muted-foreground">
+              {Array(count)
+                .fill("")
+                .map((_, i) => (
+                  <li
+                    key={i}
+                    onClick={() => {
+                      api?.scrollTo(i);
+                    }}
+                    className={`
+                       w-[1.4rem] h-[0.4rem] rounded-md
+                      ${
+                        current - 1 === i
+                          ? "bg-my-primary"
+                          : "bg-white border border-my-primary"
+                      }
+                    )`}
+                  ></li>
+                ))}
+            </ul>
           </Carousel>
         </div>
         <FeaturesList features={features_2} reverseDirection />

@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/SectionHeader/SectionHeader";
+import SectionHeader from "@/components/atoms/SectionHeader/SectionHeader";
 import my_media from "@/lib/media";
 import { cn } from "@/lib/utils";
 import Image from "next/image";

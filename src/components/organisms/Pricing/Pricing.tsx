@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/SectionHeader/SectionHeader";
+import SectionHeader from "@/components/atoms/SectionHeader/SectionHeader";
 import { plans } from "@/lib/data";
 import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
 
