@@ -4,6 +4,7 @@ import Hero from "@/components/organisms/Hero/Hero";
 import Navbar from "@/components/organisms/Navbar/Navbar";
 import Pricing from "@/components/organisms/Pricing/Pricing";
 import WhyZimail from "@/components/organisms/WhyZimail/WhyZimail";
+import Tester from "@/components/Tester/Tester";
 
 export default function LandingPage() {
   return (
