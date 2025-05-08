@@ -36,12 +36,12 @@ export default function MyCarousel() {
     <>
       <Carousel
         setApi={setApi}
-        // opts={{ loop: true }}
-        // plugins={[
-        //   Autoplay({
-        //     delay: 2000,
-        //   }),
-        // ]}
+        opts={{ loop: true }}
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
         className="overflow-hidden"
       >
         <CarouselContent className=" p-0! m-0!  w-full h-screen ">

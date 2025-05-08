@@ -3,10 +3,11 @@ import Image from "next/image";
 import my_media from "@/lib/media";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { IoLanguage, IoShieldSharp } from "react-icons/io5";
+import MyPopover from "@/components/atoms/MyPopover/MyPopover";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
-  const threshold = 400;
+  const threshold = 260;
   const bgColor = useTransform(
     scrollY,
     [0, threshold, threshold + 1],
@@ -57,10 +58,23 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <button className="text-white flexCenter gap-2 bg-my-primary py-[0.8rem] px-[1.2rem] rounded-md">
-          <IoLanguage />
-          <span className="text-[0.8rem]">EN</span>
-        </button>
+        <MyPopover
+          trigger={
+            <button className="cursor-pointer text-white flexCenter gap-2 bg-my-primary py-[0.8rem] px-[1.2rem] rounded-md">
+              <IoLanguage />
+              <span className="text-[0.8rem]">EN</span>
+            </button>
+          }
+        >
+          <ul className="w-[5rem] space-y-2 text-center">
+            <li className="text-my-text hover:text-my-accent cursor-pointer">
+              <a href="#fr">FR</a>
+            </li>
+            <li className="text-my-text hover:text-my-accent cursor-pointer">
+              <a href="#ar">AR</a>
+            </li>
+          </ul>
+        </MyPopover>
       </motion.nav>
     </header>
   );

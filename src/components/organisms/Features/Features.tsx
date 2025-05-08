@@ -57,11 +57,11 @@ export default function Features() {
           <Carousel
             // opts={{ loop: true }}
             setApi={setApi}
-            // plugins={[
-            //   Autoplay({
-            //     delay: 2000,
-            //   }),
-            // ]}
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
           >
             <CarouselContent className="p-0! m-0! rounded-2xl  w-[16rem] h-[28rem] ">
               {slides.map((e, i) => (
