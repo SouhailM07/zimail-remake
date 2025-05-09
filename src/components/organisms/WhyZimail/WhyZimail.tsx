@@ -1,3 +1,4 @@
+"use client";
 import SectionHeader from "@/components/atoms/SectionHeader/SectionHeader";
 import my_media from "@/lib/media";
 import { cn } from "@/lib/utils";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import { FaArrowsRotate } from "react-icons/fa6";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { MdStorage } from "react-icons/md";
+import { motion } from "framer-motion";
 
 export default function WhyZimail() {
   const whyList: { title: string; icon: any; subtitle: string }[] = [
@@ -29,12 +31,16 @@ export default function WhyZimail() {
     <section className="max-w-[60rem] mx-auto  ">
       <SectionHeader title="Why Zimail" />
       <article>
-        <ul className="grid grid-cols-3 gap-x-[1.4rem]  place-items-center">
+        <ul
+          role="list"
+          className="flexCenter w-full flex-wrap  gap-[1.4rem] px-[1rem] max-sm:px-[0.4rem]  place-items-center"
+        >
           {whyList.map((item, index) => (
             <li
+              role="listitem"
               key={index}
               className={cn(
-                " w-full flex h-[12rem] flex-col p-[1rem] rounded-md bg-white overflow-hidden drop-shadow-2xl",
+                "  flex w-full md:w-[18rem] h-[12rem] flex-col p-[1rem] rounded-md bg-white overflow-hidden drop-shadow-2xl",
                 { "bg-my-primary text-white": index % 2 !== 0 }
               )}
             >

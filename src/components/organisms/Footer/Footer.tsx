@@ -58,7 +58,7 @@ export default function Footer() {
   ];
   return (
     <footer className="mt-[4rem] bg-my-primary text-white ">
-      <div className="gap-[1rem] grid grid-cols-4 px-4 py-8 max-w-[84rem] mx-auto">
+      <div className="gap-x-[1rem] gap-y-[2rem] max-md:text-center max-md:grid-cols-1 max-md:place-items-center max-lg:grid-cols-2 grid grid-cols-4 px-4 py-8 max-w-[84rem] mx-auto">
         <section>
           <Image
             src={my_media.logo_1}
@@ -71,10 +71,14 @@ export default function Footer() {
         {/*  */}
         <section className="space-y-4">
           <h1 className="text-[1.2rem]">Pages</h1>
-          <ul className="space-y-4 text-[0.8rem]">
+          <ul role="list" className="space-y-4 text-[0.8rem] ">
             {menuItems.map((item, index) => (
-              <li key={index}>
-                <a href={`#${item.toLowerCase()}`} className="text-white">
+              <li role="listitem" key={index}>
+                <a
+                  aria-label={"link to " + item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-white"
+                >
                   {item}
                 </a>
               </li>
@@ -84,9 +88,13 @@ export default function Footer() {
         {/*  */}
         <section className="space-y-4 w-[14rem]">
           <h1 className="text-[1.2rem]">Contact</h1>
-          <ul className="text-[0.8rem] space-y-2">
+          <ul role="list" className="text-[0.8rem] space-y-2 text-start">
             {contactData.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
+              <li
+                role="listitem"
+                key={index}
+                className="flex items-start gap-2"
+              >
                 <span className="mt-1 ">{item.icon}</span>
                 <span>
                   {item.label && <strong>{item.label} </strong>}
@@ -96,11 +104,16 @@ export default function Footer() {
             ))}
           </ul>
         </section>
-        <section className="space-y-[1.2rem]">
+        <section className="justify-self-stretch space-y-[1.2rem]">
           <h1 className="text-[1.2rem]">Follow Us</h1>
-          <ul className="  text-white flex gap-[1.4rem] ">
+          <ul
+            role="list"
+            className="  text-white flex gap-[1.4rem] max-md:justify-center"
+          >
             {socialLinks.map((link, index) => (
               <a
+                role="listitem"
+                aria-label={"link to " + link.name}
                 key={index}
                 href={link.url}
                 target="_blank"
@@ -126,7 +139,7 @@ export default function Footer() {
           </div>
         </section>
       </div>
-      <section className="text-[0.88rem] h-[4rem] flexCenter">
+      <section className="bg-my-accent text-my-primary text-[0.88rem] h-[4rem] flexCenter">
         <p className="">© Copyright 2024 by adex technology</p>
       </section>
     </footer>

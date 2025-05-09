@@ -26,6 +26,18 @@ html {
 nav {
   transition: 0.3s;
 }
+
+#pricing_ul {
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+@media screen and (max-width: 450px) {
+  #pricing_ul {
+    grid-template-columns: 1fr;
+  }
+}
+/*=============================================================================================*/
+/* comment */
+/*=============================================================================================*/
 .loader-background {
   height: 100%;
   width: 100vw;

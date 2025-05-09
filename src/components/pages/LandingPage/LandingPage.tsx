@@ -8,7 +8,7 @@ import Tester from "@/components/Tester/Tester";
 
 export default function LandingPage() {
   return (
-    <div>
+    < >
       <Navbar />
       <main className="space-y-[10rem]">
         <Hero />
@@ -17,6 +17,6 @@ export default function LandingPage() {
         <Pricing />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

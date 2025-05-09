@@ -51,9 +51,9 @@ export default function Features() {
   return (
     <section className="max-w-[60rem] mx-auto  ">
       <SectionHeader title="Awesome Features" />
-      <article className="grid grid-cols-3 place-items-center">
+      <article className="grid grid-cols-3 max-lg:grid-cols-1 place-items-center max-md:gap-y-[0.4rem]">
         <FeaturesList features={features_1} />
-        <div className="drop-shadow-2xl  rounded-2xl ">
+        <div className="drop-shadow-2xl  rounded-2xl max-lg:row-[1]">
           <Carousel
             // opts={{ loop: true }}
             setApi={setApi}
@@ -109,15 +109,20 @@ export default function Features() {
 
 const FeaturesList = ({ features, reverseDirection = false }) => {
   return (
-    <ul className="flex flex-col items-end gap-y-[2rem] justify-self-end">
+    <ul role="list" className="max-md:w-full max-lg:flex-row max-md:flex-col flex flex-col max-md:px-[0.4rem] items-end max-md:gap-y-[0.4rem]  gap-y-[2rem] gap-x-[1rem] max-lg:justify-self-center justify-self-end">
       {features.map((feature, index) => (
         <li
+        role="listitem"
           key={index}
-          className={cn("flexCenter gap-[1.4rem]", {
-            "self-start": (index == 1 && !reverseDirection) || reverseDirection,
-            "flex-row-reverse": reverseDirection,
-            "self-end": index == 1 && reverseDirection,
-          })}
+          className={cn(
+            "flexCenter max-md:rounded-md max-md:drop-shadow-xl bg-white max-lg:h-[10rem] text-center max-md:w-full max-lg:flex-col-reverse max-lg:w-[12rem]  gap-[1.4rem]",
+            {
+              "self-start":
+                (index == 1 && !reverseDirection) || reverseDirection,
+              "flex-row-reverse": reverseDirection,
+              "self-end": index == 1 && reverseDirection,
+            }
+          )}
         >
           <span className="uppercase text-[0.88rem] font-medium">
             {feature.label}

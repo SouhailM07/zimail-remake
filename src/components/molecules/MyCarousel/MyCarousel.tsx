@@ -44,9 +44,10 @@ export default function MyCarousel() {
         ]}
         className="overflow-hidden"
       >
-        <CarouselContent className=" p-0! m-0!  w-full h-screen ">
+        <CarouselContent role="list" className=" p-0! m-0!  w-full h-screen ">
           {slides.map((e, i) => (
             <CarouselItem
+            role="listitem"
               key={i}
               className="flexCenter w-full h-full p-0! m-0!"
             >
@@ -57,7 +58,7 @@ export default function MyCarousel() {
                 src={e.img}
                 alt="logo"
               />
-              <article className="select-none space-y-[2rem] absolute text-white h-full flex-col w-full bg-my-primary/40 flexCenter text-center">
+              <article className="select-none px-4 space-y-[2rem] absolute text-white h-full flex-col w-full bg-my-primary/34 flexCenter text-center">
                 <h1 className="text-[2.4rem] font-bold">Zimail</h1>
                 <h2>
                   A complete mailing system based on zimbra, hosted in Algeria

@@ -4,12 +4,12 @@ import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
 
 export default function Pricing() {
   return (
-    <section>
+    <section className="px-[1rem] max-sm:px-[0.4rem]">
       <SectionHeader
         title="Plans & Pricing"
         subtitle="Better rates , exceptional people"
       />
-      <ul className=" grid grid-cols-3 max-w-[70rem] gap-[3rem] mx-auto ">
+      <ul id="pricing_ul" className=" grid max-w-[70rem] gap-[2rem] mx-auto ">
         {plans.map((plan, idx) => (
           <li
             key={idx}
@@ -17,13 +17,13 @@ export default function Pricing() {
               idx % 2 == 0
                 ? "bg-white "
                 : "bg-gradient-to-br from-orange-500 to-red-500 text-white"
-            } hover:scale-105 duration-200 rounded-sm flex justify-between flex-col p-6 drop-shadow-2xl`}
+            }  hover:scale-105 duration-200 rounded-sm flex justify-between flex-col p-6 drop-shadow-2xl`}
           >
             <div>
               <h1 className="text-[1.6rem] font-bold">{plan.title}</h1>
               <p className="text-lg mt-2">{plan.monthly} / MONTH</p>
               <p className="text-sm mb-4">{plan.yearly} / YEAR</p>
-              <ul className="space-y-2 mb-4 text-[0.88rem] ">
+              <ul className="space-y-2 mb-4 max-sm:text-[0.8rem] text-[0.88rem] ">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-2">
                     {feature.included ? (
