@@ -7,7 +7,7 @@ export default function Pricing() {
     <section className="px-[1rem] max-sm:px-[0.4rem]">
       <SectionHeader
         title="Plans & Pricing"
-        subtitle="Better rates , exceptional people"
+        subtitle="Choose the Plan That Fits Your Business"
       />
       <ul id="pricing_ul" className=" grid max-w-[70rem] gap-[2rem] mx-auto ">
         {plans.map((plan, idx) => (

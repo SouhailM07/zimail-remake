@@ -4,6 +4,10 @@ import { FaPhone, FaEnvelope, FaFax, FaMapMarkerAlt } from "react-icons/fa";
 import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
+  const getYear = () => {
+    const date = new Date();
+    return date.getFullYear();
+  };
   const socialLinks = [
     {
       icon: <FaFacebook className="size-[2rem]" />,
@@ -140,7 +144,10 @@ export default function Footer() {
         </section>
       </div>
       <section className="bg-my-accent text-my-primary text-[0.88rem] h-[4rem] flexCenter">
-        <p className="">© Copyright 2024 by adex technology</p>
+        <p className="">
+          © Copyright <strong> {getYear()} </strong>
+          by Adex Technology
+        </p>
       </section>
     </footer>
   );

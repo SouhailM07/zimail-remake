@@ -32,6 +32,9 @@ export default function Features() {
     { img: my_media.feature_slide_1 },
     { img: my_media.feature_slide_2 },
     { img: my_media.feature_slide_3 },
+    { img: my_media.feature_slide_4 },
+    { img: my_media.feature_slide_5 },
+    { img: my_media.feature_slide_6 },
   ];
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -50,7 +53,7 @@ export default function Features() {
   }, [api]);
   return (
     <section className="max-w-[60rem] mx-auto  ">
-      <SectionHeader title="Awesome Features" />
+      <SectionHeader title="Zimail Features" />
       <article className="grid grid-cols-3 max-lg:grid-cols-1 place-items-center max-md:gap-y-[0.4rem]">
         <FeaturesList features={features_1} />
         <div className="drop-shadow-2xl  rounded-2xl max-lg:row-[1]">
@@ -109,10 +112,13 @@ export default function Features() {
 
 const FeaturesList = ({ features, reverseDirection = false }) => {
   return (
-    <ul role="list" className="max-md:w-full max-lg:flex-row max-md:flex-col flex flex-col max-md:px-[0.4rem] items-end max-md:gap-y-[0.4rem]  gap-y-[2rem] gap-x-[1rem] max-lg:justify-self-center justify-self-end">
+    <ul
+      role="list"
+      className="max-md:w-full max-lg:flex-row max-md:flex-col flex flex-col max-md:px-[0.4rem] items-end max-md:gap-y-[0.4rem]  gap-y-[2rem] gap-x-[1rem] max-lg:justify-self-center justify-self-end"
+    >
       {features.map((feature, index) => (
         <li
-        role="listitem"
+          role="listitem"
           key={index}
           className={cn(
             "flexCenter max-md:rounded-md max-md:drop-shadow-xl bg-white max-lg:h-[10rem] text-center max-md:w-full max-lg:flex-col-reverse max-lg:w-[12rem]  gap-[1.4rem]",

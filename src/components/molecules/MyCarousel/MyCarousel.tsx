@@ -12,10 +12,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function MyCarousel() {
-  const slides: { img: any }[] = [
-    { img: my_media.slider_1 },
-    { img: my_media.slider_2 },
-    { img: my_media.slider_3 },
+  const slides: { img: any ,phrase:string}[] = [
+    { img: my_media.slider_1,phrase:"Centralize your communications in a single platform" },
+    { img: my_media.slider_2 ,phrase:"Gain in efficiency and productivity."},
+    // { img: my_media.slider_3 },
   ];
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -47,7 +47,7 @@ export default function MyCarousel() {
         <CarouselContent role="list" className=" p-0! m-0!  w-full h-screen ">
           {slides.map((e, i) => (
             <CarouselItem
-            role="listitem"
+              role="listitem"
               key={i}
               className="flexCenter w-full h-full p-0! m-0!"
             >
@@ -58,10 +58,10 @@ export default function MyCarousel() {
                 src={e.img}
                 alt="logo"
               />
-              <article className="select-none px-4 space-y-[2rem] absolute text-white h-full flex-col w-full bg-my-primary/34 flexCenter text-center">
+              <article className="select-none px-4 space-y-[2rem] absolute text-white h-full flex-col w-full flexCenter text-center">
                 <h1 className="text-[2.4rem] font-bold">Zimail</h1>
                 <h2>
-                  A complete mailing system based on zimbra, hosted in Algeria
+                  {e.phrase}
                 </h2>
               </article>
             </CarouselItem>
