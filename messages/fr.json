@@ -1,5 +1,133 @@
 {
   "HomePage": {
-    "title": "Bounjour !"
+    "title": "Bonjour le monde !"
+  },
+  "Navbar": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "pricing": "Tarification",
+    "testimonials": "Témoignages"
+  },
+  "Hero": {
+    "slide_phrase_1": "Centralisez vos communications sur une seule plateforme",
+    "slide_phrase_2": "Gagnez en efficacité et en productivité."
+  },
+  "WhyZimail": {
+    "title": "Pourquoi Zimail ?",
+    "cards": {
+      "0": {
+        "title": "Entièrement responsive",
+        "subtitle": "Zimail est entièrement responsive et fonctionne sur tous les appareils."
+      },
+      "1": {
+        "title": "Synchronisation en temps réel",
+        "subtitle": "Synchronisation en temps réel avec les protocoles MAPI et ActiveSync."
+      },
+      "2": {
+        "title": "Stockage sécurisé et flexible",
+        "subtitle": "La souveraineté des données est assurée, stockées sur nos serveurs situés en Algérie."
+      }
+    }
+  },
+  "Features": {
+    "title": "Fonctionnalités de Zimail",
+    "features": {
+      "0": "Multi-plateforme",
+      "1": "Stockage cloud",
+      "2": "Excellente équipe d'assistance",
+      "3": "Écosystème puissant",
+      "4": "Communication sécurisée",
+      "5": "Visioconférence (bientôt disponible)"
+    }
+  },
+  "Pricing": {
+    "title": "Plans & Tarification",
+    "subtitle": "Choisissez le plan adapté à votre entreprise",
+    "purchase": "Acheter",
+    "plans": [
+      {
+        "title": "Basique",
+        "monthly": "92 DZD",
+        "yearly": "1100 DZD",
+        "features": [
+          { "label": "Contacts", "included": true },
+          { "label": "Recherche basique", "included": true },
+          { "label": "Norme madani", "included": true },
+          { "label": "Antécédents / Archives", "included": false },
+          { "label": "Stockage 50 Mo", "included": true },
+          {
+            "label": "Sauvegarde automatique : 1 Go (150 DZD / compte / mois)",
+            "included": false
+          },
+          { "label": "Calendrier", "included": false },
+          { "label": "Modification de documents en ligne", "included": false },
+          { "label": "Synchronisation mobile", "included": false },
+          { "label": "Synchronisation Outlook", "included": false }
+        ]
+      },
+      {
+        "title": "Basique +",
+        "monthly": "200 DZD",
+        "yearly": "2400 DZD",
+        "features": [
+          { "label": "Contacts", "included": true },
+          { "label": "Calendrier", "included": true },
+          { "label": "Recherche basique", "included": true },
+          { "label": "Norme madani", "included": true },
+          { "label": "Antécédents / Archives", "included": true },
+          { "label": "Stockage 1 Go", "included": true },
+          {
+            "label": "Sauvegarde automatique : 1 Go (150 DZD / compte / mois)",
+            "included": false
+          },
+          { "label": "Modification de documents en ligne", "included": false },
+          { "label": "Synchronisation mobile", "included": false },
+          { "label": "Synchronisation Outlook", "included": false },
+          { "label": "Filtrage personnalisé", "included": false }
+        ]
+      },
+      {
+        "title": "Standard",
+        "monthly": "300 DZD",
+        "yearly": "3600 DZD",
+        "features": [
+          { "label": "Contacts", "included": true },
+          { "label": "Calendrier", "included": true },
+          { "label": "Avancé", "included": true },
+          { "label": "Recherche basique", "included": true },
+          { "label": "Norme madani", "included": true },
+          { "label": "Antécédents / Archives", "included": true },
+          { "label": "Stockage 2 Go", "included": true },
+          {
+            "label": "Sauvegarde automatique : 1 Go (150 DZD / compte / mois)",
+            "included": false
+          },
+          { "label": "Modification de documents en ligne", "included": true },
+          { "label": "Synchronisation mobile", "included": false },
+          { "label": "Synchronisation Outlook", "included": false }
+        ]
+      },
+      {
+        "title": "Home Professionnel",
+        "monthly": "500 DZD",
+        "yearly": "6000 DZD",
+        "features": [
+          { "label": "Contacts", "included": true },
+          { "label": "Calendrier", "included": true },
+          { "label": "Recherche basique", "included": true },
+          { "label": "Norme madani_Archive", "included": true },
+          { "label": "Synchronisation mobile", "included": true },
+          { "label": "Modification de documents en ligne", "included": true },
+          { "label": "Antécédents / Archives", "included": true },
+          { "label": "Avancé", "included": true },
+          { "label": "Filtrage personnalisé", "included": true },
+          { "label": "Synchronisation Outlook", "included": true },
+          {
+            "label": "Stockage de sauvegarde + (5 Go pour 150 DZD / compte / mois)",
+            "included": true
+          }
+        ]
+      }
+    ]
   }
 }

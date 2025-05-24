@@ -8,13 +8,15 @@ import {
 import my_media from "@/lib/media";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function MyCarousel() {
-  const slides: { img: any ,phrase:string}[] = [
-    { img: my_media.slider_1,phrase:"Centralize your communications in a single platform" },
-    { img: my_media.slider_2 ,phrase:"Gain in efficiency and productivity."},
+  const t = useTranslations("Hero");
+  const slides: { img: any; phrase: string }[] = [
+    { img: my_media.slider_1, phrase: t("slide_phrase_1") },
+    { img: my_media.slider_2, phrase: t("slide_phrase_2") },
     // { img: my_media.slider_3 },
   ];
   const [api, setApi] = useState<CarouselApi>();
@@ -42,7 +44,8 @@ export default function MyCarousel() {
             delay: 2000,
           }),
         ]}
-        className="overflow-hidden"
+        id="home"
+        className="overflow-hidden "
       >
         <CarouselContent role="list" className=" p-0! m-0!  w-full h-screen ">
           {slides.map((e, i) => (
@@ -60,9 +63,7 @@ export default function MyCarousel() {
               />
               <article className="select-none px-4 space-y-[2rem] absolute text-white h-full flex-col w-full flexCenter text-center">
                 <h1 className="text-[2.4rem] font-bold">Zimail</h1>
-                <h2>
-                  {e.phrase}
-                </h2>
+                <h2>{e.phrase}</h2>
               </article>
             </CarouselItem>
           ))}

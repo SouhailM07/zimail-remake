@@ -1,4 +1,5 @@
 import my_media from "@/lib/media";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaPhone, FaEnvelope, FaFax, FaMapMarkerAlt } from "react-icons/fa";
 import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
@@ -30,12 +31,12 @@ export default function Footer() {
       url: "https://twitter.com/yourprofile",
     },
   ];
+  const t = useTranslations("Navbar");
   const menuItems = [
-    "Home",
-    "Features",
-    "Screenshots",
-    "Pricing",
-    "Testimonials",
+    { label: "home", link: "home" },
+    { label: "features", link: "features" },
+    { label: "pricing", link: "pricing" },
+    { label: "testimonials", link: "testimonials" },
   ];
 
   const contactData = [
@@ -61,7 +62,7 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="mt-[4rem] bg-my-primary text-white ">
+    <footer id="footer" className="mt-[4rem] bg-my-primary text-white ">
       <div className="gap-x-[1rem] gap-y-[2rem] max-md:text-center max-md:grid-cols-1 max-md:place-items-center max-lg:grid-cols-2 grid grid-cols-4 px-4 py-8 max-w-[84rem] mx-auto">
         <section>
           <Image
@@ -79,11 +80,11 @@ export default function Footer() {
             {menuItems.map((item, index) => (
               <li role="listitem" key={index}>
                 <a
-                  aria-label={"link to " + item}
-                  href={`#${item.toLowerCase()}`}
+                  aria-label={"link to " + item.link}
+                  href={`#${item.link}`}
                   className="text-white"
                 >
-                  {item}
+                  {t(item.label)}
                 </a>
               </li>
             ))}
@@ -129,7 +130,7 @@ export default function Footer() {
             ))}
           </ul>
           <div className="space-y-[1rem]">
-            <p>Revive latest News</p>
+            <p>Recive latest News</p>
             <form className="text-black rounded bg-white overflow-hidden h-[2.6rem] w-full flex">
               <input
                 type="text"

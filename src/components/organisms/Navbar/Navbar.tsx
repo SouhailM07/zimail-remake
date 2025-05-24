@@ -5,6 +5,8 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { IoLanguage } from "react-icons/io5";
 import MyPopover from "@/components/atoms/MyPopover/MyPopover";
 import NavbarMobile from "../NavbarMobile/NavbarMobile";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
@@ -26,7 +28,13 @@ export default function Navbar() {
     ["70rem", "70rem", "54rem"]
   );
   //
-  const menuItems = ["Home", "Features", "Pricing", "Testimonials"];
+  const t = useTranslations("Navbar");
+  const menuItems = [
+    { label: "home", link: "home" },
+    { label: "features", link: "features" },
+    { label: "pricing", link: "pricing" },
+    { label: "testimonials", link: "testimonials" },
+  ];
 
   return (
     <header className="z-[10] w-full fixed top-0 py-4 px-[0.4rem] md:px-[1rem]  ">
@@ -52,37 +60,49 @@ export default function Navbar() {
               key={index}
               className="inline-block text-white hover:text-my-accent  "
             >
-              <a
-                aria-label={"link to" + item}
-                href={`#${item.toLowerCase()}`}
-                className=""
+              <Link
+                aria-label={"link to" + item.link}
+                href={`#${item.link}`}
+                className="capitalize"
               >
-                {item}
-              </a>
+                {t(item.label)}
+              </Link>
             </li>
           ))}
         </ul>
         <div className="flexCenter gap-x-[1rem]">
-          <MyPopover
-            trigger={
-              <button className="cursor-pointer drop-shadow-2xl text-white flexCenter  gap-2 bg-my-primary py-[0.8rem] px-[1.2rem] rounded-md">
-                <IoLanguage />
-                <span className="text-[0.8rem]">EN</span>
-              </button>
-            }
-          >
-            <ul className="w-[5rem] space-y-2 text-center">
-              <li className="text-my-text hover:text-my-accent cursor-pointer">
-                <a href="#fr">FR</a>
-              </li>
-              <li className="text-my-text hover:text-my-accent cursor-pointer">
-                <a href="#ar">AR</a>
-              </li>
-            </ul>
-          </MyPopover>
+          <SwitchLanguage />
           <NavbarMobile />
         </div>
       </motion.nav>
     </header>
   );
 }
+
+const SwitchLanguage = () => {
+  const locale = useLocale();
+  const langs = ["fr", "en"];
+  return (
+    <MyPopover
+      trigger={
+        <button className="cursor-pointer drop-shadow-2xl text-white flexCenter  gap-2 bg-my-primary py-[0.8rem] px-[1.2rem] rounded-md">
+          <IoLanguage />
+          <span className="text-[0.8rem] capitalize">{locale}</span>
+        </button>
+      }
+    >
+      <ul className="w-[5rem] space-y-2 text-center">
+        {langs
+          .filter((e) => e !== locale)
+          .map((lang, index) => (
+            <li
+              key={index}
+              className="uppercase text-my-text hover:text-my-accent cursor-pointer"
+            >
+              <Link href={lang}>{lang}</Link>
+            </li>
+          ))}
+      </ul>
+    </MyPopover>
+  );
+};

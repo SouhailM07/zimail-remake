@@ -7,29 +7,24 @@ import { FaArrowsRotate } from "react-icons/fa6";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { MdStorage } from "react-icons/md";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function WhyZimail() {
-  const whyList: { title: string; icon: any; subtitle: string }[] = [
+  const t = useTranslations("WhyZimail");
+  const whyList: { icon: any }[] = [
     {
-      title: "Fully Responsive",
       icon: <IoIosPhonePortrait />,
-      subtitle: "Zimail is fully responsive and works on all devices.",
     },
     {
-      title: "Realtime synchronization",
       icon: <FaArrowsRotate />,
-      subtitle: "Real-time synchronization using MAPI,ActivSync protocols.",
     },
     {
-      title: "Flexible secure storage",
       icon: <MdStorage />,
-      subtitle:
-        "Data sovereignty is assured, stored in our servers which are located in Algeria.",
     },
   ];
   return (
     <section className="max-w-[60rem] mx-auto  ">
-      <SectionHeader title="Why Zimail" />
+      <SectionHeader title={t("title")} />
       <article>
         <ul
           role="list"
@@ -46,7 +41,7 @@ export default function WhyZimail() {
             >
               <div className="space-y-[2.8rem] ">
                 <div className="flexBetween gap-x-2">
-                  <h1 className="text-[1.2rem]">{item.title}</h1>
+                  <h1 className="text-[1.2rem]">{t(`cards.${index}.title`)}</h1>
                   <span
                     className={cn(
                       "bg-my-primary text-white p-[0.8rem] rounded-full text-[1.6rem]",
@@ -57,7 +52,7 @@ export default function WhyZimail() {
                   </span>
                 </div>
                 <p className="z-[2] relative text-[0.8rem] text-my-text">
-                  {item.subtitle}
+                  {t(`cards.${index}.subtitle`)}
                 </p>
               </div>
               <Image

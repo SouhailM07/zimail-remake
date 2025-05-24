@@ -10,7 +10,7 @@ import {
 export default function MySheet({ trigger, children, title }) {
   return (
     <Sheet>
-      <SheetTrigger>{trigger}</SheetTrigger>
+      <SheetTrigger asChild>{trigger}</SheetTrigger>
       <SheetContent className="w-[16rem] sm:w-[20rem]">
         <SheetHeader>
           <SheetTitle>{title}</SheetTitle>

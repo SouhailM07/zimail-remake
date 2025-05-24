@@ -9,6 +9,7 @@ import {
 import my_media from "@/lib/media";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsCameraVideoFill } from "react-icons/bs";
@@ -18,15 +19,16 @@ import { IoIosPeople } from "react-icons/io";
 import { LuTabletSmartphone } from "react-icons/lu";
 
 export default function Features() {
-  const features_1: { label: string; icon: any }[] = [
-    { label: "cross-platform", icon: <LuTabletSmartphone /> },
-    { label: "cloud storage", icon: <FaCloud /> },
-    { label: "Great Support Team", icon: <FaHeadphonesSimple /> },
+  const t = useTranslations("Features");
+  const features_1: { icon: any }[] = [
+    { icon: <LuTabletSmartphone /> },
+    { icon: <FaCloud /> },
+    { icon: <FaHeadphonesSimple /> },
   ];
-  const features_2: { label: string; icon: any }[] = [
-    { label: "Powerful ecosystem", icon: <IoIosPeople /> },
-    { label: "Secure communication", icon: <FaLock /> },
-    { label: "Videoconferencing (Coming Soon)", icon: <BsCameraVideoFill /> },
+  const features_2: { icon: any }[] = [
+    { icon: <IoIosPeople /> },
+    { icon: <FaLock /> },
+    { icon: <BsCameraVideoFill /> },
   ];
   const slides: { img: any }[] = [
     { img: my_media.feature_slide_1 },
@@ -111,6 +113,7 @@ export default function Features() {
 }
 
 const FeaturesList = ({ features, reverseDirection = false }) => {
+  const t = useTranslations("Features");
   return (
     <ul
       role="list"
@@ -131,7 +134,7 @@ const FeaturesList = ({ features, reverseDirection = false }) => {
           )}
         >
           <span className="uppercase text-[0.88rem] font-medium">
-            {feature.label}
+            {reverseDirection?t(`features.${index+3}`):t(`features.${index}`)}
           </span>
           <div className="flexCenter text-[1.6rem] text-white aspect-square min-w-[3.8rem] bg-my-primary rounded-full">
             {feature.icon}

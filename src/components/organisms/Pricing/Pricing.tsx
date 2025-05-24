@@ -1,16 +1,21 @@
 import SectionHeader from "@/components/atoms/SectionHeader/SectionHeader";
-import { plans } from "@/lib/data";
+import { useTranslations } from "next-intl";
 import { IoCheckmarkSharp, IoCloseSharp } from "react-icons/io5";
 
 export default function Pricing() {
+  const t = useTranslations("Pricing");
+  const cards = [
+    t.raw("plans.0"),
+    t.raw("plans.1"),
+    t.raw("plans.2"),
+    t.raw("plans.3"),
+  ];
   return (
-    <section className="px-[1rem] max-sm:px-[0.4rem]">
-      <SectionHeader
-        title="Plans & Pricing"
-        subtitle="Choose the Plan That Fits Your Business"
-      />
+    <section id="pricing" className="px-[1rem] max-sm:px-[0.4rem]">
+      <SectionHeader title={t("title")} subtitle={t("subtitle")} />
       <ul id="pricing_ul" className=" grid max-w-[70rem] gap-[2rem] mx-auto ">
-        {plans.map((plan, idx) => (
+        {/* {t("plans.0.title")} */}
+        {cards.map((plan, idx) => (
           <li
             key={idx}
             className={`${
@@ -40,7 +45,7 @@ export default function Pricing() {
               className={`${idx % 2 == 0 && "border border-my-primary "}
               " self-end bg-white  text-orange-500 px-4 py-2 rounded hover:bg-my-accent hover:text-white`}
             >
-              Purchase
+              {t("purchase")}
             </button>
           </li>
         ))}
