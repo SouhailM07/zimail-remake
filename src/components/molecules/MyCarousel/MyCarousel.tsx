@@ -47,7 +47,7 @@ export default function MyCarousel() {
         id="home"
         className="overflow-hidden "
       >
-        <CarouselContent role="list" className=" p-0! m-0!  w-full h-screen ">
+        <CarouselContent role="list" className=" p-0! m-0!  w-full h-[90vh] ">
           {slides.map((e, i) => (
             <CarouselItem
               role="listitem"
@@ -57,13 +57,13 @@ export default function MyCarousel() {
               <Image
                 width={1400}
                 height={1400}
-                className="h-full w-full object-cover"
+                className="h-full  w-full object-cover"
                 src={e.img}
                 alt="logo"
               />
               <article className="select-none px-4 space-y-[2rem] absolute text-white h-full flex-col w-full flexCenter text-center">
                 <h1 className="text-[2.4rem] font-bold">Zimail</h1>
-                <h2>{e.phrase}</h2>
+                <h2 style={{ textShadow: "2px 2px 1px black" }}>{e.phrase}</h2>
               </article>
             </CarouselItem>
           ))}
